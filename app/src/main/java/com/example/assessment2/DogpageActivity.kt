@@ -78,7 +78,70 @@ class DogpageActivity : AppCompatActivity() {
         }
 
 
+// Defining a Runnable to decrement the boredom value periodically
+        val decreasehappyRunnable = object : Runnable {
+            override fun run() {
+                // Indicating the start of the countdown for decreasing happy
+                Log.d("LivePet", "Starting countdown to reduce happy")
+                // Retrieving the current happy value from the TextView
+                val currenthappyValue = happystat.text.toString().toInt()
+                // Decreasing the happy value by 5 units
+                val newhappyValue = currenthappyValue - 3
+                // Logging the decrease in the happiness stat
+                Log.d("LivePet", "Decreased happiness by 5 units")
+                // Updating the TextView with the new boredom value
+                happystat.text = newhappyValue.toString()
+                // Scheduling the next execution of this Runnable after 3.2 seconds
+               happystat.postDelayed(this, 3200)
+            }
+        }
 
+// Initiating the continuous decrease of boredom value
+        happystat.post(decreasehappyRunnable)
+
+
+        // Defining a Runnable to decrement the boredom value periodically
+        val decreasecleanRunnable = object : Runnable {
+            override fun run() {
+                // Indicating the start of the countdown for decreasing clean
+                Log.d("LivePet", "Starting countdown to reduce clean")
+                // Retrieving the current happy value from the TextView
+                val currentcleanValue = Cleanstat.text.toString().toInt()
+                // Decreasing the clean value by 5 units
+                val newcleanValue = currentcleanValue - 3
+                // Logging the decrease in the clean stat
+                Log.d("LivePet", "Decreased clean by 5 units")
+                // Updating the TextView with the new clean value
+                Cleanstat.text = newcleanValue.toString()
+                // Scheduling the next execution of this Runnable after 3.2 seconds
+                Cleanstat.postDelayed(this, 3200)
+            }
+        }
+
+// Initiating the continuous decrease of boredom value
+        Cleanstat.post(decreasecleanRunnable)
+
+
+        // Defining a Runnable to decrement the feed value periodically
+        val decreasehungerRunnable = object : Runnable {
+            override fun run() {
+                // Indicating the start of the countdown for decreasing hunger
+                Log.d("LivePet", "Starting countdown to reduce hunger")
+                // Retrieving the current hunger value from the TextView
+                val currenthungerValue = Hungerstat.text.toString().toInt()
+                // Decreasing the hunger value by 5 units
+                val newhungerValue = currenthungerValue - 3
+                // Logging the decrease in the clean stat
+                Log.d("LivePet", "Decreased hunger by 5 units")
+                // Updating the TextView with the new hunger value
+                Hungerstat.text = newhungerValue.toString()
+                // Scheduling the next execution of this Runnable after 3.2 seconds
+                Hungerstat.postDelayed(this, 3200)
+            }
+        }
+
+// Initiating the continuous decrease of boredom value
+        Hungerstat.post(decreasehungerRunnable)
 
 
     }
